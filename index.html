@@ -1,220 +1,369 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>ATHOY — Profile</title>
+<title>ATHOY — NFC Profile</title>
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    body {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 24px;
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-      background:
-        radial-gradient(circle at 50% 0%, #242424 0%, #0d0d0d 42%, #080808 100%);
+    padding: 20px;
 
-      color: #fff;
-      font-family: 'Inter', sans-serif;
-    }
+    background:
+        radial-gradient(circle at 20% 10%, #24201d 0%, transparent 35%),
+        radial-gradient(circle at 90% 90%, #211b18 0%, transparent 30%),
+        #0b0b0b;
 
-    .card {
-      width: 100%;
-      max-width: 390px;
-      padding: 34px 24px 22px;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+}
 
-      background: rgba(18, 18, 18, 0.92);
-      border: 1px solid #292929;
-      border-radius: 26px;
 
-      box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.55);
+/* CARD */
 
-      text-align: center;
-    }
+.card {
+    width: 100%;
+    max-width: 390px;
 
-    /* PROFILE PHOTO */
-    .avatar {
-      width: 105px;
-      height: 105px;
+    position: relative;
+    overflow: hidden;
 
-      margin: 0 auto 18px;
+    padding: 24px;
 
-      border-radius: 50%;
-      overflow: hidden;
+    background: #111111;
 
-      border: 2px solid #3a3a3a;
-      background: #161616;
+    border: 1px solid #292929;
+    border-radius: 20px;
 
-      box-shadow:
-        0 0 0 6px rgba(255,255,255,0.025),
-        0 10px 30px rgba(0,0,0,0.5);
-    }
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.55);
+}
 
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
 
-    .name {
-      font-size: 27px;
-      font-weight: 700;
-      letter-spacing: 2px;
-    }
+/* DECORATION */
 
-    .username {
-      margin-top: 5px;
-      color: #888;
-      font-size: 13px;
-    }
+.card::before {
+    content: "";
+    position: absolute;
 
-    .bio {
-      margin: 18px 0 25px;
-      color: #b5b5b5;
-      font-size: 14px;
-      line-height: 1.6;
-    }
+    width: 180px;
+    height: 180px;
 
-    /* LINKS */
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 11px;
-    }
+    right: -90px;
+    top: -90px;
 
-    .link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    border: 1px solid rgba(255,125,45,.18);
+    border-radius: 50%;
+}
 
-      width: 100%;
-      min-height: 52px;
+.card::after {
+    content: "";
+    position: absolute;
 
-      border: 1px solid #303030;
-      border-radius: 15px;
+    width: 120px;
+    height: 120px;
 
-      background: #151515;
-      color: #f2f2f2;
+    right: -60px;
+    top: -60px;
 
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
+    border: 1px solid rgba(255,125,45,.12);
+    border-radius: 50%;
+}
 
-      transition: 0.2s ease;
-    }
 
-    .link:hover {
-      background: #202020;
-      border-color: #505050;
-      transform: translateY(-2px);
-    }
+/* TOP */
 
-    .link:active {
-      transform: scale(0.98);
-    }
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    /* SMALL LABEL */
-    .tag {
-      display: inline-block;
+    margin-bottom: 32px;
+}
 
-      margin-bottom: 22px;
-      padding: 6px 11px;
+.nfc {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
 
-      border: 1px solid #303030;
-      border-radius: 999px;
+    color: #777;
+}
 
-      color: #8f8f8f;
-      font-size: 11px;
-      letter-spacing: 1px;
-    }
+.status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
 
-    footer {
-      margin-top: 23px;
+    font-size: 10px;
+    color: #777;
+}
 
-      color: #555;
-      font-size: 10px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
+.status span {
+    width: 6px;
+    height: 6px;
 
-    @media (max-width: 400px) {
-      .card {
-        padding: 30px 20px 20px;
-      }
-    }
-  </style>
+    border-radius: 50%;
+    background: #ff7d32;
+
+    box-shadow: 0 0 8px rgba(255,125,50,.7);
+}
+
+
+/* PROFILE */
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+
+    margin-bottom: 30px;
+}
+
+.avatar {
+    width: 78px;
+    height: 78px;
+
+    flex-shrink: 0;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(135deg, #272727, #171717);
+
+    border: 1px solid #383838;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar::after {
+    content: "ATHOY";
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    color: #666;
+}
+
+
+/* Hide placeholder text when image exists */
+
+.avatar:has(img[src$="profile.jpg"])::after {
+    display: none;
+}
+
+
+.name {
+    font-size: 30px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.username {
+    margin-top: 4px;
+
+    color: #777;
+    font-size: 12px;
+}
+
+
+/* BIO */
+
+.bio {
+    padding: 15px 0;
+
+    border-top: 1px solid #242424;
+    border-bottom: 1px solid #242424;
+
+    color: #aaa;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.bio strong {
+    color: #eee;
+}
+
+
+/* LINKS */
+
+.links {
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+
+    height: 50px;
+
+    padding: 0 15px;
+
+    text-decoration: none;
+
+    color: #ddd;
+
+    background: #161616;
+
+    border: 1px solid #252525;
+    border-radius: 12px;
+
+    transition: .18s ease;
+}
+
+.link:hover {
+    background: #1d1d1d;
+    border-color: #3a3a3a;
+    transform: translateX(3px);
+}
+
+.number {
+    width: 30px;
+
+    color: #555;
+
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.link-name {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+/* FOOTER */
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 25px;
+
+    color: #484848;
+
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+</style>
 </head>
+
 
 <body>
 
-  <main class="card">
+<main class="card">
 
-    <div class="tag">
-      NFC PROFILE
+    <div class="top">
+        <div class="nfc">NFC / PROFILE</div>
+
+        <div class="status">
+            <span></span>
+            ONLINE
+        </div>
     </div>
 
-    <div class="avatar">
-      <img src="profile.jpg" alt="ATHOY">
+
+    <section class="profile">
+
+        <div class="avatar">
+            <img src="profile.jpg" alt="ATHOY">
+        </div>
+
+        <div>
+            <h1 class="name">ATHOY</h1>
+            <p class="username">@athoy_yowis</p>
+        </div>
+
+    </section>
+
+
+    <div class="bio">
+        <strong>Student</strong> · Mathematics · Creator
     </div>
 
-    <h1 class="name">ATHOY</h1>
-
-    <p class="username">@athoy_yowis</p>
-
-    <p class="bio">
-      Student • Mathematics • Creator
-    </p>
 
     <div class="links">
 
-      <a
-        class="link"
-        href="https://www.instagram.com/ada._.wow/"
-        target="_blank">
-        Content
-      </a>
+        <a class="link"
+           href="https://www.instagram.com/ada._.wow/"
+           target="_blank">
 
-      <a
-        class="link"
-        href="https://www.instagram.com/athoy_yowis/"
-        target="_blank">
-        Personal
-      </a>
+            <span class="number">01</span>
+            <span class="link-name">Content</span>
 
-      <a
-        class="link"
-        href="https://github.com/athoy-bro"
-        target="_blank">
-        GitHub
-      </a>
+        </a>
 
-      <a
-        class="link"
-        href="#"
-        target="_blank">
-        Projects
-      </a>
+
+        <a class="link"
+           href="https://www.instagram.com/athoy_yowis/"
+           target="_blank">
+
+            <span class="number">02</span>
+            <span class="link-name">Personal</span>
+
+        </a>
+
+
+        <a class="link"
+           href="https://github.com/athoy-bro"
+           target="_blank">
+
+            <span class="number">03</span>
+            <span class="link-name">GitHub</span>
+
+        </a>
+
+
+        <a class="link"
+           href="#">
+
+            <span class="number">04</span>
+            <span class="link-name">Projects</span>
+
+        </a>
 
     </div>
 
-    <footer>
-      ATHOY • 2026
-    </footer>
 
-  </main>
+    <div class="footer">
+        <span>ATHOY / 001</span>
+        <span>2026</span>
+    </div>
+
+</main>
 
 </body>
 </html>
