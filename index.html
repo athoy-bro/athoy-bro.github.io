@@ -1,147 +1,220 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ATHOY — Profile</title>
+  <title>ATHOY — Profile</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-        body {
-            margin: 0;
-            min-height: 100vh;
-            font-family: Arial, sans-serif;
-            background: #101010;
-            color: white;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
 
-            padding: 20px;
-        }
+      background:
+        radial-gradient(circle at 50% 0%, #242424 0%, #0d0d0d 42%, #080808 100%);
 
-        .card {
-            width: 100%;
-            max-width: 420px;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+    }
 
-            padding: 40px 26px 30px;
+    .card {
+      width: 100%;
+      max-width: 390px;
+      padding: 34px 24px 22px;
 
-            text-align: center;
+      background: rgba(18, 18, 18, 0.92);
+      border: 1px solid #292929;
+      border-radius: 26px;
 
-            background: #181818;
-            border: 1px solid #303030;
-            border-radius: 24px;
-        }
+      box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.55);
 
-        .avatar {
-            width: 110px;
-            height: 110px;
+      text-align: center;
+    }
 
-            margin: 0 auto 22px;
+    /* PROFILE PHOTO */
+    .avatar {
+      width: 105px;
+      height: 105px;
 
-            border-radius: 50%;
+      margin: 0 auto 18px;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+      border-radius: 50%;
+      overflow: hidden;
 
-            background: #303030;
+      border: 2px solid #3a3a3a;
+      background: #161616;
 
-            font-size: 42px;
-            font-weight: 300;
-        }
+      box-shadow:
+        0 0 0 6px rgba(255,255,255,0.025),
+        0 10px 30px rgba(0,0,0,0.5);
+    }
 
-        h1 {
-            margin: 0;
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-            font-size: 32px;
-            letter-spacing: 1px;
-        }
+    .name {
+      font-size: 27px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
 
-        .bio {
-            margin: 10px 0 30px;
+    .username {
+      margin-top: 5px;
+      color: #888;
+      font-size: 13px;
+    }
 
-            color: #999;
+    .bio {
+      margin: 18px 0 25px;
+      color: #b5b5b5;
+      font-size: 14px;
+      line-height: 1.6;
+    }
 
-            font-size: 15px;
-        }
+    /* LINKS */
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
 
-        .links a {
-            display: block;
+    .link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-            margin: 12px 0;
-            padding: 15px;
+      width: 100%;
+      min-height: 52px;
 
-            border-radius: 13px;
+      border: 1px solid #303030;
+      border-radius: 15px;
 
-            background: #262626;
+      background: #151515;
+      color: #f2f2f2;
 
-            color: white;
-            text-decoration: none;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
 
-            font-size: 16px;
+      transition: 0.2s ease;
+    }
 
-            transition: 0.2s;
-        }
+    .link:hover {
+      background: #202020;
+      border-color: #505050;
+      transform: translateY(-2px);
+    }
 
-        .links a:hover {
-            background: #333;
-        }
+    .link:active {
+      transform: scale(0.98);
+    }
 
-        .footer {
-            margin-top: 28px;
+    /* SMALL LABEL */
+    .tag {
+      display: inline-block;
 
-            color: #666;
+      margin-bottom: 22px;
+      padding: 6px 11px;
 
-            font-size: 12px;
-        }
-    </style>
+      border: 1px solid #303030;
+      border-radius: 999px;
+
+      color: #8f8f8f;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    footer {
+      margin-top: 23px;
+
+      color: #555;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 400px) {
+      .card {
+        padding: 30px 20px 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <div class="card">
+  <main class="card">
 
-        <div class="avatar">
-            A
-        </div>
+    <div class="tag">
+      NFC PROFILE
+    </div>
 
-        <h1>ATHOY</h1>
+    <div class="avatar">
+      <img src="profile.jpg" alt="ATHOY">
+    </div>
 
-        <p class="bio">
-            Student • Mathematics • Creator
-        </p>
+    <h1 class="name">ATHOY</h1>
 
-        <div class="links">
+    <p class="username">@athoy_yowis</p>
 
-            <a href="https://www.instagram.com/ada._.wow/" target="_blank">
-                Content
-            </a>
+    <p class="bio">
+      Student • Mathematics • Creator
+    </p>
 
-            <a href="https://www.instagram.com/athoy_yowis/" target="_blank">
-                Personal
-            </a>
+    <div class="links">
 
-            <a href="https://github.com/athoy-bro" target="_blank">
-                GitHub
-            </a>
+      <a
+        class="link"
+        href="https://www.instagram.com/ada._.wow/"
+        target="_blank">
+        Content
+      </a>
 
-            <a href="#" target="_blank">
-                Projects
-            </a>
+      <a
+        class="link"
+        href="https://www.instagram.com/athoy_yowis/"
+        target="_blank">
+        Personal
+      </a>
 
-        </div>
+      <a
+        class="link"
+        href="https://github.com/athoy-bro"
+        target="_blank">
+        GitHub
+      </a>
 
-        <div class="footer">
-            NFC Profile • ATHOY
-        </div>
+      <a
+        class="link"
+        href="#"
+        target="_blank">
+        Projects
+      </a>
 
     </div>
+
+    <footer>
+      ATHOY • 2026
+    </footer>
+
+  </main>
 
 </body>
 </html>
