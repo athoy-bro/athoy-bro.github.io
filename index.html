@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>ATHOY — Profile</title>
 
     <style>
@@ -14,64 +15,90 @@
             margin: 0;
             min-height: 100vh;
             font-family: Arial, sans-serif;
-            background: #111;
+            background: #101010;
             color: white;
+
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 24px;
+
+            padding: 20px;
         }
 
         .card {
             width: 100%;
             max-width: 420px;
+
+            padding: 40px 26px 30px;
+
             text-align: center;
-            padding: 35px 25px;
-            border: 1px solid #333;
+
+            background: #181818;
+            border: 1px solid #303030;
             border-radius: 24px;
-            background: #1a1a1a;
         }
 
         .avatar {
             width: 110px;
             height: 110px;
+
+            margin: 0 auto 22px;
+
             border-radius: 50%;
-            margin: 0 auto 20px;
-            background: #333;
+
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 40px;
+            align-items: center;
+
+            background: #303030;
+
+            font-size: 42px;
+            font-weight: 300;
         }
 
         h1 {
             margin: 0;
+
             font-size: 32px;
+            letter-spacing: 1px;
         }
 
         .bio {
-            color: #aaa;
-            margin: 10px 0 28px;
+            margin: 10px 0 30px;
+
+            color: #999;
+
+            font-size: 15px;
         }
 
-        a {
+        .links a {
             display: block;
-            padding: 15px;
+
             margin: 12px 0;
-            border-radius: 12px;
-            background: #292929;
+            padding: 15px;
+
+            border-radius: 13px;
+
+            background: #262626;
+
             color: white;
             text-decoration: none;
+
+            font-size: 16px;
+
+            transition: 0.2s;
         }
 
-        a:hover {
-            background: #383838;
+        .links a:hover {
+            background: #333;
         }
 
         .footer {
-            margin-top: 25px;
-            font-size: 12px;
+            margin-top: 28px;
+
             color: #666;
+
+            font-size: 12px;
         }
     </style>
 </head>
@@ -80,17 +107,35 @@
 
     <div class="card">
 
-        <div class="avatar">A</div>
+        <div class="avatar">
+            A
+        </div>
 
         <h1>ATHOY</h1>
 
         <p class="bio">
-            Student • Creator • Learner
+            Student • Mathematics • Creator
         </p>
 
-        <a href="#">Instagram</a>
-        <a href="#">Projects</a>
-        <a href="#">Contact</a>
+        <div class="links">
+
+            <a href="https://www.instagram.com/ada._.wow/" target="_blank">
+                Content
+            </a>
+
+            <a href="https://www.instagram.com/athoy_yowis/" target="_blank">
+                Personal
+            </a>
+
+            <a href="https://github.com/athoy-bro" target="_blank">
+                GitHub
+            </a>
+
+            <a href="#" target="_blank">
+                Projects
+            </a>
+
+        </div>
 
         <div class="footer">
             NFC Profile • ATHOY
