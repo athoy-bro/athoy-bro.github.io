@@ -20,7 +20,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-
     padding: 20px;
 
     background:
@@ -32,29 +31,20 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-
-/* CARD */
-
 .card {
     width: 100%;
     max-width: 390px;
-
     position: relative;
     overflow: hidden;
 
     padding: 24px;
 
     background: #111111;
-
     border: 1px solid #292929;
     border-radius: 20px;
 
-    box-shadow:
-        0 30px 80px rgba(0,0,0,.55);
+    box-shadow: 0 30px 80px rgba(0,0,0,.55);
 }
-
-
-/* DECORATION */
 
 .card::before {
     content: "";
@@ -84,9 +74,6 @@ body {
     border-radius: 50%;
 }
 
-
-/* TOP */
-
 .top {
     display: flex;
     justify-content: space-between;
@@ -99,7 +86,6 @@ body {
     font-size: 10px;
     font-weight: 600;
     letter-spacing: 2px;
-
     color: #777;
 }
 
@@ -122,9 +108,6 @@ body {
     box-shadow: 0 0 8px rgba(255,125,50,.7);
 }
 
-
-/* PROFILE */
-
 .profile {
     display: flex;
     align-items: center;
@@ -140,11 +123,9 @@ body {
     flex-shrink: 0;
 
     border-radius: 18px;
-
     overflow: hidden;
 
-    background:
-        linear-gradient(135deg, #272727, #171717);
+    background: linear-gradient(135deg, #272727, #171717);
 
     border: 1px solid #383838;
 
@@ -157,42 +138,20 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
-
-.avatar::after {
-    content: "ATHOY";
-
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-
-    color: #666;
-}
-
-
-/* Hide placeholder text when image exists */
-
-.avatar:has(img[src$="profile.jpg"])::after {
-    display: none;
-}
-
 
 .name {
     font-size: 30px;
     font-weight: 800;
-
     letter-spacing: 1px;
 }
 
 .username {
     margin-top: 4px;
-
     color: #777;
     font-size: 12px;
 }
-
-
-/* BIO */
 
 .bio {
     padding: 15px 0;
@@ -210,15 +169,11 @@ body {
     color: #eee;
 }
 
-
-/* LINKS */
-
 .links {
     margin-top: 20px;
 
     display: flex;
     flex-direction: column;
-
     gap: 8px;
 }
 
@@ -226,12 +181,11 @@ body {
     display: flex;
     align-items: center;
 
-    height: 50px;
+    min-height: 58px;
 
     padding: 0 15px;
 
     text-decoration: none;
-
     color: #ddd;
 
     background: #161616;
@@ -258,13 +212,21 @@ body {
     letter-spacing: 1px;
 }
 
-.link-name {
-    font-size: 13px;
-    font-weight: 500;
+.link-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
 }
 
+.link-name {
+    font-size: 13px;
+    font-weight: 600;
+}
 
-/* FOOTER */
+.link-desc {
+    color: #666;
+    font-size: 10px;
+}
 
 .footer {
     display: flex;
@@ -281,7 +243,6 @@ body {
 </style>
 </head>
 
-
 <body>
 
 <main class="card">
@@ -294,7 +255,6 @@ body {
             ONLINE
         </div>
     </div>
-
 
     <section class="profile">
 
@@ -309,11 +269,9 @@ body {
 
     </section>
 
-
     <div class="bio">
         <strong>Student</strong> · Mathematics · Creator
     </div>
-
 
     <div class="links">
 
@@ -322,41 +280,52 @@ body {
            target="_blank">
 
             <span class="number">01</span>
-            <span class="link-name">Content</span>
+
+            <span class="link-info">
+                <span class="link-name">Instagram</span>
+                <span class="link-desc">Content</span>
+            </span>
 
         </a>
-
 
         <a class="link"
            href="https://www.instagram.com/athoy_yowis/"
            target="_blank">
 
             <span class="number">02</span>
-            <span class="link-name">Personal</span>
+
+            <span class="link-info">
+                <span class="link-name">Instagram</span>
+                <span class="link-desc">Personal</span>
+            </span>
 
         </a>
-
 
         <a class="link"
            href="https://github.com/athoy-bro"
            target="_blank">
 
             <span class="number">03</span>
-            <span class="link-name">GitHub</span>
+
+            <span class="link-info">
+                <span class="link-name">GitHub</span>
+                <span class="link-desc">@athoy-bro</span>
+            </span>
 
         </a>
 
-
-        <a class="link"
-           href="#">
+        <a class="link" href="#">
 
             <span class="number">04</span>
-            <span class="link-name">Projects</span>
+
+            <span class="link-info">
+                <span class="link-name">Projects</span>
+                <span class="link-desc">Things I build</span>
+            </span>
 
         </a>
 
     </div>
-
 
     <div class="footer">
         <span>ATHOY / 001</span>
